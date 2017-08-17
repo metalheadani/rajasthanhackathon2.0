@@ -9,9 +9,10 @@ contract mortal{
 	owner = msg.sender; //receives address of user
 	}
 
+//modifier - built in function in solidity meaning transaction will not be executed
 	modifier onlyOwner(){
 		if(msg.sender != owner){
-			revert; //built in function in solidity meaning transaction will not be executed
+			//revert;
 		} else{
 			_;
 
