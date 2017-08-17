@@ -1,3 +1,5 @@
+pragma solidity ^0.4.0;
+
 contract mortal{
 	
 	address public owner;
@@ -9,20 +11,21 @@ contract mortal{
 
 	modifier onlyOwner(){
 		if(msg.sender != owner){
-			throw; //built in function in solidity meaning transaction will not be executed
+			revert; //built in function in solidity meaning transaction will not be executed
 		} else{
-			_
+			_;
 
 		}	
 	}
 
+//contract is terminated automatically
 	function kill() onlyOwner{
 	suicide(owner);
 	}
 } 
 
-contract User is owner {  //inheritance
-	string public usrName;
+contract User is mortal {  //inheritance
+	string public userName;
 	function User(string _name){
 	userName = _name;
 	}
